@@ -48,7 +48,7 @@ namespace Day1
             int number1 = -1,
                 number2 = -1,
                 number3 = -1,
-                total = 0;
+                total = -1;
 
             for (int i = 0; i < numberList.Count && total != 2020; i++)
             {
@@ -82,7 +82,6 @@ namespace Day1
                         numberList.Add(int.Parse(streamReader.ReadLine()));
                     }
                 }
-
                 fileStream.Close();
             }
             catch (Exception)

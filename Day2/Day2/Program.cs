@@ -48,6 +48,7 @@ namespace Day2
             {
                 match1 = false;
                 match2 = false;
+
                 if (currentLine.Password[currentLine.NumberOne - 1] == currentLine.RequiredChar)
                     match1 = true;
                 if (currentLine.Password[currentLine.NumberTwo - 1] == currentLine.RequiredChar)
