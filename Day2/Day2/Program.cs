@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Day2
@@ -29,9 +26,11 @@ namespace Day2
             foreach(PasswordLine currentLine in passwordData)
             {
                 charCount = 0;
+
                 foreach (char c in currentLine.Password)
                     if (c == currentLine.RequiredChar)
                         charCount++;
+
                 if (charCount >= currentLine.NumberOne && charCount <= currentLine.NumberTwo)
                     validCount++;
             }

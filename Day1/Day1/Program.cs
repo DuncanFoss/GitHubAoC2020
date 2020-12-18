@@ -10,14 +10,47 @@ namespace Day1
 
         static void Main(string[] args)
         {
-            int number1 = 0,
-                number2 = 0,
-                number3 = 0,
-                total = 0;
-
             populateList();
 
-            for(int i = 0; i < numberList.Count && total != 2020; i++)
+            int[] challenge1 = ChallengeOneNumbers(),
+                  challenge2 = ChallengeTwoNumbers();
+
+            Console.WriteLine(String.Format("Part 1 Answer: {0}", challenge1[0] * challenge1[1]));
+            Console.WriteLine(String.Format("Part 2 Answer: {0}", challenge2[0] * challenge2[1] * challenge2[2]));
+
+            Console.Write("Press any key to exit...");
+            Console.ReadKey();
+        }
+
+        private static int[] ChallengeOneNumbers()
+        {
+            int number1 = -1,
+                number2 = -1,
+                total = -1;
+
+            for (int i = 0; i < numberList.Count && total != 2020; i++)
+            {
+                number1 = numberList[i];
+                for (int j = i + 1; j < numberList.Count && total != 2020; j++)
+                {
+                    number2 = numberList[j];
+                    total = number1 + number2;
+                }
+            }
+
+            int[] results = { number1, number2};
+
+            return results;
+        }
+
+        private static int[] ChallengeTwoNumbers()
+        {
+            int number1 = -1,
+                number2 = -1,
+                number3 = -1,
+                total = 0;
+
+            for (int i = 0; i < numberList.Count && total != 2020; i++)
             {
                 number1 = numberList[i];
                 for (int j = i + 1; j < numberList.Count && total != 2020; j++)
@@ -31,10 +64,9 @@ namespace Day1
                 }
             }
 
-            Console.WriteLine("N1: {0}\nN2: {1}\nN3: {2}", number1, number2, number3);
-            Console.WriteLine("Answer: " + number1 * number2 * number3);
-            Console.Write("Press any key to exit...");
-            Console.ReadKey();
+            int[] numbers = { number1, number2, number3 };
+
+            return numbers;
         }
 
         private static void populateList() {
